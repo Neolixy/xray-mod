@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.xraymod.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BlockStateMixin",
+    "BlockRenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "xraymod",
+  "version": "1.0.0",
+  "name": "X-Ray Mod",
+  "description": "Appuie sur Alt gauche pour ouvrir le panneau X-Ray",
+  "authors": ["Toi"],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.xraymod.client.XRayMod"
+    ]
+  },
+  "mixins": [
+    "xraymod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21"
+  }
+}
