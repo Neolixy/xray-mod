@@ -19,20 +19,18 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Generate Gradle wrapper
-        run: gradle wrapper --gradle-version 8.8
-        continue-on-error: true
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.8'
 
       - name: Build mod
-        run: ./gradlew build --no-daemon
+        run: gradle build --no-daemon
+        working-directory: xray-mod/xray-mod
 
       - name: Upload .jar
         uses: actions/upload-artifact@v4
         with:
           name: xray-mod
-          path: build/libs/xray-mod-*.jar
+          path: xray-mod/xray-mod/build/libs/xray-mod-*.jar
           if-no-files-found: error
-          
