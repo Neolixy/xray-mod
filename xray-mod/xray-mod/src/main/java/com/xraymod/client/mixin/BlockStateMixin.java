@@ -3,7 +3,6 @@ package com.xraymod.client.mixin;
 import com.xraymod.client.XRayMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.render.chunk.ChunkRendererRegion;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -45,8 +44,8 @@ public class BlockStateMixin {
             "minecraft:void_air"
     );
 
-    @Inject(method = "isOpaque", at = @At("HEAD"), cancellable = true)
-    private void onIsOpaque(CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "isFullCube", at = @At("HEAD"), cancellable = true)
+    private void onIsFullCube(CallbackInfoReturnable<Boolean> cir) {
         if (!XRayMod.xrayEnabled) return;
 
         BlockState self = (BlockState) (Object) this;
